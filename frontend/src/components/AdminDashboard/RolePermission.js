@@ -24,7 +24,7 @@ const RolePermission = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/permission-list",
+          "https://role-based-permission-web-app-backend.vercel.app/api/permission-list",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -74,7 +74,7 @@ const RolePermission = () => {
     console.error(formData, "ssssssssssssssssssssssss");
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/create-permission",
+        "https://role-based-permission-web-app-backend.vercel.app/api/create-permission",
         formData,
         {
           headers: { Authorization: `Bearer ${token}` },

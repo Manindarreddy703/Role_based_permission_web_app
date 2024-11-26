@@ -19,7 +19,7 @@ const RolePermissionIndex = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/all-permissions", // Replace with actual API endpoint
+          "https://role-based-permission-web-app-backend.vercel.app/api/all-permissions", // Replace with actual API endpoint
           {
             headers: { Authorization: `Bearer ${token}` },
           }

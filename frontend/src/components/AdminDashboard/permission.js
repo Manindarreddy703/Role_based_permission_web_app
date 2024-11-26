@@ -83,7 +83,7 @@ const PermissionDashboard = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/permissions",
+          "https://role-based-permission-web-app-backend.vercel.app/api/permissions",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -104,7 +104,7 @@ const PermissionDashboard = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/permissions",
+        "https://role-based-permission-web-app-backend.vercel.app/api/permissions",
         { title: newPermission },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -126,7 +126,7 @@ const PermissionDashboard = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/permissions/${updatedPermission.id}`,
+        `https://role-based-permission-web-app-backend.vercel.app/api/permissions/${updatedPermission.id}`,
         { title: updatedPermission.title },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -144,7 +144,7 @@ const PermissionDashboard = () => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.delete(`http://localhost:5000/api/permission/${id}`, {
+      await axios.delete(`https://role-based-permission-web-app-backend.vercel.app/api/permission/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPermissions(permissions.filter((permission) => permission.id !== id));

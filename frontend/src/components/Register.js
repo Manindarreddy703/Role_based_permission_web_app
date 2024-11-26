@@ -27,7 +27,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/register",
+        "https://role-based-permission-web-app-backend.vercel.app/api/register",
         formData
       );
       const { token } = response.data;
@@ -57,7 +57,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/google-register",
+        "https://role-based-permission-web-app-backend.vercel.app/api/google-register",
         { idToken: credential }
       );
       const { token } = res.data;

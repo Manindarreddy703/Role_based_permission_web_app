@@ -34,7 +34,7 @@ const TodoItem = ({ todo, index, moveTodo, onEdit, onDelete }) => {
       try {
         // Fetch user details
         const userResponse = await axios.get(
-          `http://localhost:5000/api/getuserdetails/${user.id}`,
+          `https://role-based-permission-web-app-backend.vercel.app/api/getuserdetails/${user.id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -46,7 +46,7 @@ const TodoItem = ({ todo, index, moveTodo, onEdit, onDelete }) => {
         // Fetch permissions if the role is not admin
         if (AuthUser[0].role !== "admin") {
           const permissionsResponse = await axios.get(
-            `http://localhost:5000/api/list/${AuthUser[0].role}`,
+            `https://role-based-permission-web-app-backend.vercel.app/api/list/${AuthUser[0].role}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -134,7 +134,7 @@ const AdminDashboard = () => {
       }
 
       try {
-        const response = await axios.get("http://localhost:5000/api/todos", {
+        const response = await axios.get("https://role-based-permission-web-app-backend.vercel.app/api/todos", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTodos(response.data);
@@ -153,7 +153,7 @@ const AdminDashboard = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/todos",
+        "https://role-based-permission-web-app-backend.vercel.app/api/todos",
         { title: newTodo },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -175,7 +175,7 @@ const AdminDashboard = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/todos/${updatedTodo.id}`,
+        `https://role-based-permission-web-app-backend.vercel.app/api/todos/${updatedTodo.id}`,
         { title: updatedTodo.title },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -193,7 +193,7 @@ const AdminDashboard = () => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.delete(`http://localhost:5000/api/todos/${id}`, {
+      await axios.delete(`https://role-based-permission-web-app-backend.vercel.app/api/todos/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTodos(todos.filter((todo) => todo.id !== id));

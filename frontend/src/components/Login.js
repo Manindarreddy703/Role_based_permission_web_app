@@ -22,7 +22,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/login",
+        "https://role-based-permission-web-app-backend.vercel.app/api/login",
         formData
       );
       const { token } = response.data;
@@ -45,7 +45,7 @@ const Login = () => {
 
     try {
       // Send credential to your backend for verification
-      const res = await axios.post("http://localhost:5000/api/google-login", {
+      const res = await axios.post("https://role-based-permission-web-app-backend.vercel.app/api/google-login", {
         idToken: credential,
       });
       const { token } = res.data;

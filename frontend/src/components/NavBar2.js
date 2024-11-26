@@ -24,7 +24,7 @@ const NavBar2 = () => {
       try {
         // Fetch user details
         const userResponse = await axios.get(
-          `http://localhost:5000/api/getuserdetails/${user.id}`,
+          `https://role-based-permission-web-app-backend.vercel.app/api/getuserdetails/${user.id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -36,7 +36,7 @@ const NavBar2 = () => {
         // Fetch permissions if the role is not admin
         if (AuthUser[0].role !== "admin") {
           const permissionsResponse = await axios.get(
-            `http://localhost:5000/api/list/${AuthUser[0].role}`,
+            `https://role-based-permission-web-app-backend.vercel.app/api/list/${AuthUser[0].role}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }

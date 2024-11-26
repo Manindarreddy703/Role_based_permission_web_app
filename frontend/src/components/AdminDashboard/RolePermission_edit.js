@@ -22,7 +22,7 @@ const EditUserDetails = () => {
       try {
         // Fetch user details by id
         const userResponse = await axios.get(
-          `http://localhost:5000/api/getuserdetails/${id}`, // Fetch by id from the URL
+          `https://role-based-permission-web-app-backend.vercel.app/api/getuserdetails/${id}`, // Fetch by id from the URL
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -34,7 +34,7 @@ const EditUserDetails = () => {
         // Fetch permissions if the user is not an admin
         if (user.role !== "admin") {
           const permissionsResponse = await axios.get(
-            `http://localhost:5000/api/list/${user.role}`,
+            `https://role-based-permission-web-app-backend.vercel.app/api/list/${user.role}`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -82,7 +82,7 @@ const EditUserDetails = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/updatepermission/${getuser.id}`,
+        `https://role-based-permission-web-app-backend.vercel.app/api/updatepermission/${getuser.id}`,
         {
           ...updatedUser,
           permissions: updatedPermissions,
